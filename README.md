@@ -11,4 +11,3 @@ Android/data/<folder of the app>/files
 ## Version
 
 - Unity: 2019.4.7f1
-- Java Development Kit: OpenJDK 1.8.0_152 
