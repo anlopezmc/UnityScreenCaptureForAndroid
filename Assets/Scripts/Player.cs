@@ -7,19 +7,23 @@ public class Player : MonoBehaviour
     // Dragging
     private float distance;
     private bool dragging;
-    private float limiteSuperior;
-    private float limiteInferior;
-    private float limiteIzquierdo;
-    private float limiteDerecho;
+    private float upperLimit;
+    private float lowerLimit;
+    private float leftLimit;
+    private float rightLimit;
 
     // Start is called before the first frame update
     void Start()
     {
         dragging = false;
-        limiteSuperior = 4.06f;
-        limiteInferior = -4.22f;
-        limiteIzquierdo = -7.96f;
-        limiteDerecho = 8.16f;   
+        Vector3 world_position_of_bottom_left = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f));
+        Vector3 world_position_of_bottom_right = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0.0f));
+        Vector3 world_position_of_up_left = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, Screen.height, 0.0f));
+        
+        upperLimit = world_position_of_up_left.y - gameObject.GetComponent<SpriteRenderer>().bounds.size.y/2;
+        lowerLimit = world_position_of_bottom_left.y + gameObject.GetComponent<SpriteRenderer>().bounds.size.y/2;
+        leftLimit = world_position_of_bottom_left.x + gameObject.GetComponent<SpriteRenderer>().bounds.size.x/2;
+        rightLimit = world_position_of_bottom_right.x - gameObject.GetComponent<SpriteRenderer>().bounds.size.x/2;
     }
 
     // Update is called once per frame
@@ -29,17 +33,17 @@ public class Player : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Vector3 rayPoint = ray.GetPoint(distance);
             rayPoint.z = 0;
-            if (rayPoint.y > limiteSuperior) {
-                rayPoint.y = limiteSuperior;
+            if (rayPoint.y > upperLimit) {
+                rayPoint.y = upperLimit;
             }
-            if (rayPoint.y < limiteInferior) {
-                rayPoint.y = limiteInferior;
+            if (rayPoint.y < lowerLimit) {
+                rayPoint.y = lowerLimit;
             }
-            if (rayPoint.x > limiteDerecho) {
-                rayPoint.x = limiteDerecho;
+            if (rayPoint.x > rightLimit) {
+                rayPoint.x = rightLimit;
             }
-            if (rayPoint.x < limiteIzquierdo) {
-                rayPoint.x = limiteIzquierdo;
+            if (rayPoint.x < leftLimit) {
+                rayPoint.x = leftLimit;
             }
             transform.position = rayPoint;
         }

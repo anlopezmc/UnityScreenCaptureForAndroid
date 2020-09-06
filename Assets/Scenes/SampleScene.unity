@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -213,6 +214,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1918a6721f6fb45bd95bec8e93b362fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScreenshotButton: {fileID: 1728073752}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -419,10 +433,10 @@ RectTransform:
   m_Father: {fileID: 1857921085}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -777.5, y: 445.6}
-  m_SizeDelta: {x: 251.6, y: 88.4}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -45}
+  m_SizeDelta: {x: 250, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1728073754
 MonoBehaviour:
@@ -467,8 +481,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1853763430}
-        m_MethodName: Screenshot
+      - m_Target: {fileID: 519420030}
+        m_MethodName: ScreenshotButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -525,7 +539,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1853763429}
   - component: {fileID: 1853763428}
-  - component: {fileID: 1853763430}
   m_Layer: 0
   m_Name: MainWorld
   m_TagString: Untagged
@@ -591,25 +604,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853763427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.015, y: 0, z: 0}
-  m_LocalScale: {x: 1.141424, y: 1.0411415, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1853763430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853763427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1918a6721f6fb45bd95bec8e93b362fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScreenshotButton: {fileID: 1728073752}
 --- !u!1 &1857921081
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,12 +719,12 @@ PrefabInstance:
     - target: {fileID: 8151586380898513741, guid: 085137cd7b4a64c45bbd0a297438f781,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.88
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8151586380898513741, guid: 085137cd7b4a64c45bbd0a297438f781,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8151586380898513741, guid: 085137cd7b4a64c45bbd0a297438f781,
         type: 3}
